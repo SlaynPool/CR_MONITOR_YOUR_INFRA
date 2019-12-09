@@ -53,3 +53,17 @@ Installez le client SNMP sous Linux
     SNMPv2-MIB::sysServices.0 = INTEGER: 78
     IF-MIB::ifNumber.0 = INTEGER: 3
     ```
+
+Pour Autoriser les connections de l'exterieur, il faut :
+
+-   ``` {#commande/3.txt .default caption="snmpd.conf" label="commande/3.txt" style="Style1"}
+    #  Listen for connections from the local system only
+    #agentAddress  udp:127.0.0.1:161
+    #  Listen for connections on all interfaces (both IPv4 *and* IPv6)
+    agentAddress udp:161,udp6:[::1]:161
+
+
+
+    systemctl restart snmpd
+
+    ```
