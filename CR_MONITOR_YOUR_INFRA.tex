@@ -4,6 +4,7 @@
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{hyperref}
 \usepackage{graphicx}
+\usepackage{listings}
 
 % \usepackage{fancyhdr}
 % \fancyhead{}
@@ -96,6 +97,33 @@ Pour Autoriser les connections de l'exterieur, il faut :
 \insertcode{commande/6.txt}{Arbre de la mib SNMPv2}
 \subsubsection{Traduisez en oid SNMPv2-MIB : :system et réciproquement}
 \insertcode{commande/7.txt}{Traduction}
+
+\subsubsection{Retrouvez à l’aide de snmpnetstat la liste des connections TCP et UDP du serveur distant}
+\insertcode{commande/8.txt}{snmpNetstat}
+
+
+\subsubsection{ quoi sert la commande snmpgetnext ? Utilisez la pour retrouvez SNMPv2-MIB : :sysContact.0}
+Source : \url{man snmpgetnext}
+\begin{lstlisting}
+                snmpgetnext  is  an SNMP application that uses
+                    the SNMP GETNEXT request to query for informa
+                    tion  on a network entity.  One or more object
+                    identifiers (OIDs) may be given  as  arguments
+                    on  the  command  line.  Each variable name is
+                    given in the format specified in variables(5).
+                    For  each  one,  the  variable that is lexico
+                    graphically "next" in the remote entity's  MIB
+                    will be returned.
+
+\end{lstlisting}
+La commande sert donc à afficher des informations à propos du périphérique interrogé.
+\insertcode{commande/9.txt}{snmpgetnext}
+
+
+
+
+
+
 \end{document}
 
 

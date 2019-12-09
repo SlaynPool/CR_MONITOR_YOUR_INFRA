@@ -1,0 +1,5 @@
+[slaynpool@MiniZbeub]~$ snmpnetstat  -v  2c -c public 10.6.0.1 
+Active Internet (udp) Connections
+Proto Local Address               Remote Address                PID
+udp4  *.*                         *.*                             0
+

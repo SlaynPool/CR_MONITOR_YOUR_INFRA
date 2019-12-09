@@ -137,3 +137,46 @@ Interrogation via SNMP du serveur ayant pour IP 10.6.0.1.
              +-- -R-- TimeTicks sysORUpTime(4)
                       Textual Convention: TimeStamp
     ```
+
+### Traduisez en oid SNMPv2-MIB : :system et réciproquement
+
+-   ``` {#commande/7.txt .default caption="Traduction" label="commande/7.txt" style="Style1"}
+    [slaynpool@MiniZbeub]~$   snmptranslate -Ot .1.3.6.1.2.1.1
+    SNMPv2-MIB::system
+    [slaynpool@MiniZbeub]~$  snmptranslate -On -Td SNMPv2-MIB::system
+    .1.3.6.1.2.1.1
+    system OBJECT-TYPE
+      -- FROM	SNMPv2-MIB
+    ::= { iso(1) org(3) dod(6) internet(1) mgmt(2) mib-2(1) 1 }
+    ```
+
+### Retrouvez à l'aide de snmpnetstat la liste des connections TCP et UDP du serveur distant
+
+-   ``` {#commande/8.txt .default caption="snmpNetstat" label="commande/8.txt" style="Style1"}
+    [slaynpool@MiniZbeub]~$ snmpnetstat  -v  2c -c public 10.6.0.1 
+    Active Internet (udp) Connections
+    Proto Local Address               Remote Address                PID
+    udp4  *.*                         *.*                             0
+    ```
+
+###  quoi sert la commande snmpgetnext ? Utilisez la pour retrouvez SNMPv2-MIB : :sysContact.0
+
+Source : [man snmpgetnext](man snmpgetnext)
+
+                    snmpgetnext  is  an SNMP application that uses
+                        the SNMP GETNEXT request to query for informa
+                        tion  on a network entity.  One or more object
+                        identifiers (OIDs) may be given  as  arguments
+                        on  the  command  line.  Each variable name is
+                        given in the format specified in variables(5).
+                        For  each  one,  the  variable that is lexico
+                        graphically "next" in the remote entity's  MIB
+                        will be returned.
+
+La commande sert donc à afficher des informations à propos du
+périphérique interrogé.
+
+-   ``` {#commande/9.txt .default caption="snmpgetnext" label="commande/9.txt" style="Style1"}
+     snmpgetnext 10.6.0.1 -v 2c -c public  SNMPv2-MIB::sysContact.0
+    SNMPv2-MIB::sysName.0 = STRING: SERVER-RT
+    ```
