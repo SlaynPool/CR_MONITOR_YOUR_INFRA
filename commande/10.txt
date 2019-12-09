@@ -1,0 +1,14 @@
+#Pour autre chose qu'une debian genre une Arch par exemple 
+pacman -S docker 
+systemctl start docker
+#Pour recuperer docker-compose
+git clone  https://registry.iutbeziers.fr:11443/pouchou/tp-supervision-licence-grafana.git
+cd tp-supervision-licence-grafana
+sudo docker-compose up -d 
+sudo docker-compose ps
+                  Name                             Command           State                                    Ports                                  
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+tp-supervision-licence-grafana_collectd_1   /entrypoint.sh           Up                                                                              
+tp-supervision-licence-grafana_grafana_1    /run.sh                  Up      0.0.0.0:3000->3000/tcp                                                  
+tp-supervision-licence-grafana_influxdb_1   /entrypoint.sh influxd   Up      0.0.0.0:25826->25826/udp, 0.0.0.0:8083->8083/tcp, 0.0.0.0:8086->8086/tcp
+
