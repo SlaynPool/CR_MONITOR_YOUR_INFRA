@@ -78,14 +78,15 @@ tabsize=2
 
 \insertcode{commande/1.txt}{Installation d'un Client}
 
-\insertcode{commande/2.txt}{Test d'interogation}
+\insertcode{commande/2.txt}{Test d'interrogation}
 
 Pour Autoriser les connections de l'exterieur, il faut :
 
 \insertcode{commande/3.txt}{snmpd.conf}
 
-\section{Utilisez le client SNMP afin de visualiser les informations des machineslistées dans le "terrain de jeux"}
+\section{Utilisez le client SNMP afin de visualiser les informations des machines listées dans le "terrain de jeux"}
 \subsection{Interrogation via SNMP du serveur ayant pour IP 10.6.0.1.}
+
 \subsubsection{Dumper l’ensemble des informations du serveur distant via un snmpwalk}
 \insertcode{commande/4.txt}{snmpwalk}
 
@@ -96,6 +97,39 @@ Pour Autoriser les connections de l'exterieur, il faut :
 \insertcode{commande/6.txt}{Arbre de la mib SNMPv2}
 \subsubsection{Traduisez en oid SNMPv2-MIB : :system et réciproquement}
 \insertcode{commande/7.txt}{Traduction}
+
+\section{Utilisation d’OMD comme logiciel de supervision SNMP}
+
+Paquets à installer:
+
+mk-check-agent: \url{store.iutbeziers.fr/check-mk-agent/}
+
+OMD: \url{http://clusterfrak.com/sysops/app_installs/omd_install/}
+
+\subsection{Supervisez avec OMD}
+
+
+Créer notre site avec OMD:
+\insertcode{commande/a.txt}{Création iutbeziers}
+
+Premiers pas:
+\insertcode{commande/b.txt}{Afficher status du site}
+
+
+\insertcode{commande/c.txt}{Démarrer notre site IURBEZIERS}
+
+\newpage
+Modifier l'adresse IP du site:
+
+
+
+  \begin{figure}[!h]
+\centering
+\includegraphics[scale=1]{image/omdip.png}
+\caption{Modify IP}
+\label{figure}
+
+\end{figure}
 \end{document}
 
 
