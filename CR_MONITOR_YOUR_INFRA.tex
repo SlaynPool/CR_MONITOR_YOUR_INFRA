@@ -118,12 +118,79 @@ Source : \url{man snmpgetnext}
 \end{lstlisting}
 La commande sert donc à afficher des informations à propos du périphérique interrogé.
 \insertcode{commande/9.txt}{snmpgetnext}
+\newpage
+\section{Utilisation d’OMD comme logiciel de supervision SNMP}
+
+ 
+
+  \begin{figure}[h!]
+\centering
+\includegraphics[scale=0.30]{screen/checkmk.png}
+\caption{checkmk}
+\label{fig:qos}
+\end{figure}
 
 
+
+
+\subsection{Quelques services Configuré}
+
+  \begin{figure}[h!]
+\centering
+\includegraphics[scale=0.30]{screen/checkmk2.png}
+\caption{checkmk}
+\label{fig:qos}
+\end{figure}
+
+
+
+\newpage
 \section{Métrologie de vos serveurs et postes de travail avec Grafana.}
 \subsection{Installation de Grafana/influxDB côté serveur.}
 \insertcode{commande/10.txt}{Installation/Utilisation de Docker}
 
+
+\subsection{ Configuration de la source de données Collectd.}
+
+En suivant le sujet de TP, 
+Nous obtenons ceci 
+  \begin{figure}[h!]
+\centering
+\includegraphics[scale=0.30]{screen/collectd.jpg}
+\caption{Dashboard Graphana }
+\label{fig:qos}
+\end{figure}
+
+\subsection{Importation d’un dashboard pour telegraf}
+  \begin{figure}[h!]
+\centering
+\includegraphics[scale=0.30]{screen/telegraf.jpg}
+\caption{Dashboard telegraf}
+\label{fig:qos}
+\end{figure}
+
+
+
+
+
+\newpage
+\section{Connexion à influxDB}
+
+\subsection{Donnez le nom des bases}
+\insertcode{commande/11.txt}{Liste des Tables}
+
+ \subsection{Lister les USERS }
+ Nous n'avons pas crée d'utilisateur dans la DB mais la commande est :
+ \insertcode{commande/12.txt}{Liste USERS}
+ 
+ \subsection{Donner la liste des "time series" par base.}
+ \insertcode{commande/13.txt}{SHOW SERIES}
+%  \subsection{Lister Via une requete SQL les enregistrements ``bytes_recv'' groupés par tranche de 10 seconde }
+%  J'ai pas trouvé de champs bytes_recv mais :
+ 
+ \newpage
+ \subsection{Enregistrements groupé par tranche de 10s }
+ \insertcode{commande/14.txt}{GROUPE BY}
 
 
 \end{document}

@@ -1,0 +1,19 @@
+> SHOW SERIES
+key
+---
+cpu,cpu=cpu-total,host=DebianJetable
+cpu,cpu=cpu0,host=DebianJetable
+disk,device=dm-0,fstype=ext4,host=DebianJetable,mode=rw,path=/
+disk,device=sda1,fstype=ext4,host=DebianJetable,mode=rw,path=/boot
+diskio,host=DebianJetable,name=dm-0
+diskio,host=DebianJetable,name=dm-1
+diskio,host=DebianJetable,name=sda
+diskio,host=DebianJetable,name=sda1
+diskio,host=DebianJetable,name=sda2
+kernel,host=DebianJetable
+mem,host=DebianJetable
+processes,host=DebianJetable
+swap,host=DebianJetable
+system,host=DebianJetable
+> 
+

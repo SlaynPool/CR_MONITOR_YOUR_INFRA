@@ -1,0 +1,25 @@
+> SHOW DATABASES
+name: databases
+name
+----
+collectd
+_internal
+telegraf
+
+# Voir la liste des tables de telegraf
+
+> USE telegraf
+Using database telegraf
+> SHOW MEASUREMENTS
+name: measurements
+name
+----
+cpu
+disk
+diskio
+kernel
+mem
+processes
+swap
+system
+
