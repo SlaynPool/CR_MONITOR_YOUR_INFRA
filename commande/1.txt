@@ -1,0 +1,6 @@
+apt-get update
+apt-get install snmp snmp-mibs-downloader
+#Remplacez la ligne dans /etc/snmp/snmp.conf par
+mibs +ALL
+# Remplacer la mib qui genere une erreur ( dangereux ne pas faire en prod) :
+wget http://pastebin.com/raw.php?i=p3QyuXzZ -O /usr/share/snmp/mibs/ietf/SNMPv2-PDU
