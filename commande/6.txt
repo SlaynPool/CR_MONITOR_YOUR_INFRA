@@ -1,0 +1,38 @@
+[slaynpool@MiniZbeub]~$ snmptranslate -On -Tp SNMPv2-MIB::system  
++--system(1)
+   |
+   +-- -R-- String    sysDescr(1)
+   |        Textual Convention: DisplayString
+   |        Size: 0..255
+   +-- -R-- ObjID     sysObjectID(2)
+   +-- -R-- TimeTicks sysUpTime(3)
+   |  |
+   |  +--sysUpTimeInstance(0)
+   |
+   +-- -RW- String    sysContact(4)
+   |        Textual Convention: DisplayString
+   |        Size: 0..255
+   +-- -RW- String    sysName(5)
+   |        Textual Convention: DisplayString
+   |        Size: 0..255
+   +-- -RW- String    sysLocation(6)
+   |        Textual Convention: DisplayString
+   |        Size: 0..255
+   +-- -R-- INTEGER   sysServices(7)
+   |        Range: 0..127
+   +-- -R-- TimeTicks sysORLastChange(8)
+   |        Textual Convention: TimeStamp
+   |
+   +--sysORTable(9)
+      |
+      +--sysOREntry(1)
+         |  Index: sysORIndex
+         |
+         +-- ---- INTEGER   sysORIndex(1)
+         |        Range: 1..2147483647
+         +-- -R-- ObjID     sysORID(2)
+         +-- -R-- String    sysORDescr(3)
+         |        Textual Convention: DisplayString
+         |        Size: 0..255
+         +-- -R-- TimeTicks sysORUpTime(4)
+                  Textual Convention: TimeStamp

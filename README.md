@@ -67,3 +67,73 @@ Pour Autoriser les connections de l'exterieur, il faut :
     systemctl restart snmpd
 
     ```
+
+Utilisez le client SNMP afin de visualiser les informations des machineslistées dans le \"terrain de jeux\"
+===========================================================================================================
+
+Interrogation via SNMP du serveur ayant pour IP 10.6.0.1.
+---------------------------------------------------------
+
+### Dumper l'ensemble des informations du serveur distant via un snmpwalk
+
+-   ``` {#commande/4.txt .default caption="snmpwalk" label="commande/4.txt" style="Style1"}
+    [slaynpool@MiniZbeub]~$ snmpwalk  -v  2c -c public 10.6.0.1
+    SNMPv2-MIB::sysDescr.0 = STRING: Hardware: x86 Family 15 Model 4 Stepping 3 AT/AT COMPATIBLE - Software: Windows Version 5.2 (Build 3790 Multiprocessor Free)
+    SNMPv2-MIB::sysObjectID.0 = OID: SNMPv2-SMI::enterprises.311.1.1.3.1.3
+    DISMAN-EVENT-MIB::sysUpTimeInstance = Timeticks: (2020868420) 233 days, 21:31:24.20
+    SNMPv2-MIB::sysContact.0 = STRING: M. Duban
+    SNMPv2-MIB::sysName.0 = STRING: SERVER-RT
+    SNMPv2-MIB::sysLocation.0 = STRING: Salle des serveurs
+    SNMPv2-MIB::sysServices.0 = INTEGER: 78
+    IF-MIB::ifNumber.0 = INTEGER: 3
+    ```
+
+### Retrouver le système d'exploitation de la machine via un snmpget.
+
+-   ``` {#commande/5.txt .default caption="snmpget" label="commande/5.txt" style="Style1"}
+    # snmpget  -v  2c -c public 10.6.0.1 sysDescr.0
+    SNMPv2-MIB::sysDescr.0 = STRING: Hardware: x86 Family 15 Model 4 Stepping 3 AT/AT COMPATIBLE - Software: Windows Version 5.2 (Build 3790 Multiprocessor Free)
+    ```
+
+### Afficher l'arbre system de la mib à l'aide de la commande 
+
+-   ``` {#commande/6.txt .default caption="Arbre de la mib SNMPv2" label="commande/6.txt" style="Style1"}
+    [slaynpool@MiniZbeub]~$ snmptranslate -On -Tp SNMPv2-MIB::system  
+    +--system(1)
+       |
+       +-- -R-- String    sysDescr(1)
+       |        Textual Convention: DisplayString
+       |        Size: 0..255
+       +-- -R-- ObjID     sysObjectID(2)
+       +-- -R-- TimeTicks sysUpTime(3)
+       |  |
+       |  +--sysUpTimeInstance(0)
+       |
+       +-- -RW- String    sysContact(4)
+       |        Textual Convention: DisplayString
+       |        Size: 0..255
+       +-- -RW- String    sysName(5)
+       |        Textual Convention: DisplayString
+       |        Size: 0..255
+       +-- -RW- String    sysLocation(6)
+       |        Textual Convention: DisplayString
+       |        Size: 0..255
+       +-- -R-- INTEGER   sysServices(7)
+       |        Range: 0..127
+       +-- -R-- TimeTicks sysORLastChange(8)
+       |        Textual Convention: TimeStamp
+       |
+       +--sysORTable(9)
+          |
+          +--sysOREntry(1)
+             |  Index: sysORIndex
+             |
+             +-- ---- INTEGER   sysORIndex(1)
+             |        Range: 1..2147483647
+             +-- -R-- ObjID     sysORID(2)
+             +-- -R-- String    sysORDescr(3)
+             |        Textual Convention: DisplayString
+             |        Size: 0..255
+             +-- -R-- TimeTicks sysORUpTime(4)
+                      Textual Convention: TimeStamp
+    ```
