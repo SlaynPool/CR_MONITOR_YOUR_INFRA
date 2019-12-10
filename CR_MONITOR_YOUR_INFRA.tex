@@ -103,7 +103,7 @@ Pour Autoriser les connections de l'exterieur, il faut :
 
 
 \subsubsection{ quoi sert la commande snmpgetnext ? Utilisez la pour retrouvez SNMPv2-MIB : :sysContact.0}
-Source : \url{man snmpgetnext}
+Source : \url{man_snmpgetnext}
 \begin{lstlisting}
                 snmpgetnext  is  an SNMP application that uses
                     the SNMP GETNEXT request to query for informa
@@ -119,8 +119,31 @@ Source : \url{man snmpgetnext}
 La commande sert donc à afficher des informations à propos du périphérique interrogé.
 \insertcode{commande/9.txt}{snmpgetnext}
 \newpage
-\section{Utilisation d’OMD comme logiciel de supervision SNMP}
 
+
+ \section{Utilisation d’OMD comme logiciel de supervision SNMP}
+
+Paquets à installer:
+
+mk-check-agent: \url{store.iutbeziers.fr/check-mk-agent/}
+
+OMD: \url{http://clusterfrak.com/sysops/app_installs/omd_install/}
+
+\subsection{Supervisez avec OMD}
+
+
+Créer notre site avec OMD:
+\insertcode{commande/a.txt}{Création iutbeziers}
+
+Premiers pas:
+\insertcode{commande/b.txt}{Afficher status du site}
+
+
+\insertcode{commande/c.txt}{Démarrer notre site IURBEZIERS}
+ 
+ 
+ 
+ 
  
 
   \begin{figure}[h!]
