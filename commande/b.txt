@@ -1,0 +1,9 @@
+OMD[IUTBEZIERS@DebianJetable]:~$ omd status
+rrdcached:      stopped
+npcd:           stopped
+naemon:         stopped
+apache:         stopped
+crontab:        stopped
+-----------------------
+Overall state:  stopped
+

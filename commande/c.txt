@@ -1,0 +1,15 @@
+OMD[IUTBEZIERS@DebianJetable]:~$ omd start
+Starting rrdcached...OK
+Starting npcd...OK
+Starting naemon...OK
+Starting dedicated Apache for site IUTBEZIERS...OK
+Initializing Crontab...OK
+OMD[IUTBEZIERS@DebianJetable]:~$ omd status
+rrdcached:      running
+npcd:           running
+naemon:         running
+apache:         running
+crontab:        running
+-----------------------
+Overall state:  running
+

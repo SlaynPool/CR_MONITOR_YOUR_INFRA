@@ -1,0 +1,15 @@
+root@DebianJetable:/home/user# omd create IUTBEZIERS
+Adding /omd/sites/IUTBEZIERS/tmp to /etc/fstab.
+Creating temporary filesystem /omd/sites/IUTBEZIERS/tmp...OK
+Restarting Apache...OK
+Created new site IUTBEZIERS with version 3.20-labs-edition.
+
+  The site can be started with omd start IUTBEZIERS.
+  The default web UI is available at https://DebianJetable/IUTBEZIERS/
+
+  The admin user for the web applications is omdadmin with password: ro4BsuaA
+  (It can be changed with the 'set_admin_password' command as site user.)
+
+  Please do a su - IUTBEZIERS for administration of this site.
+
+
